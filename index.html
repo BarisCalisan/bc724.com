@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bc724.com - Yakında!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Animasyonlar */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @keyframes slide-up {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        @keyframes progress {
+            from { width: 0%; }
+            to { width: 75%; }
+        }
+        
+        .float-animation { animation: float 3s ease-in-out infinite; }
+        .pulse-slow { animation: pulse-slow 2s ease-in-out infinite; }
+        .slide-up { animation: slide-up 1s ease-out forwards; }
+        
+        .typing-text {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #8b5cf6;
+            animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+        }
+        
+        .progress-bar {
+            animation: progress 3s ease-out forwards;
+        }
+        
+        /* Parçacıklar */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(139, 92, 246, 0.3);
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 1s; }
+        .particle:nth-child(3) { top: 40%; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(4) { top: 80%; left: 70%; animation-delay: 1.5s; }
+        .particle:nth-child(5) { top: 30%; left: 90%; animation-delay: 0.5s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 min-h-screen flex items-center justify-center overflow-hidden relative">
+    
+    <!-- Parçacıklar -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    
+    <!-- Ana İçerik -->
+    <div class="container mx-auto px-4 text-center relative z-10">
+        
+        <!-- Animasyonlu Emoji/İkon -->
+        <div class="float-animation text-8xl mb-8">
+            🚧
+        </div>
+        
+        <!-- Başlık -->
+        <h1 class="text-5xl md:text-7xl font-bold text-gray-800 mb-6 slide-up">
+            Yapım Aşamasında
+        </h1>
+        
+        <!-- Alt Başlık -->
+        <div class="max-w-2xl mx-auto mb-8">
+            <p class="text-xl md:text-2xl text-gray-600 mb-4 slide-up" style="animation-delay: 0.2s;">
+                Harika bir şeyler hazırlıyoruz!
+            </p>
+            <div class="typing-text inline-block text-lg text-purple-600 font-semibold">
+                Kod yazılıyor, tasarım yapılıyor, her şey mükemmel olacak...
+            </div>
+        </div>
+        
+        <!-- İlerleme Çubuğu -->
+        <div class="max-w-md mx-auto mb-12 slide-up" style="animation-delay: 0.4s;">
+            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                <span>İlerleme Durumu</span>
+                <span class="font-semibold">75%</span>
+            </div>
+            <div class="bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div class="progress-bar bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded-full"></div>
+            </div>
+        </div>
+        
+        <!-- Özellikler -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+            <div class="bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow-lg slide-up" style="animation-delay: 0.6s;">
+                <div class="text-4xl mb-3">⚡</div>
+                <h3 class="font-bold text-gray-800 mb-2">Süper Hızlı</h3>
+                <p class="text-gray-600 text-sm">Işık hızında açılan sayfalar</p>
+            </div>
+            
+            <div class="bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow-lg slide-up" style="animation-delay: 0.8s;">
+                <div class="text-4xl mb-3">🎨</div>
+                <h3 class="font-bold text-gray-800 mb-2">Modern Tasarım</h3>
+                <p class="text-gray-600 text-sm">Göze hitap eden arayüz</p>
+            </div>
+            
+            <div class="bg-white/60 backdrop-blur-sm p-6 rounded-xl shadow-lg slide-up" style="animation-delay: 1s;">
+                <div class="text-4xl mb-3">📱</div>
+                <h3 class="font-bold text-gray-800 mb-2">Mobil Uyumlu</h3>
+                <p class="text-gray-600 text-sm">Her cihazda mükemmel</p>
+            </div>
+        </div>
+        
+        <!-- Geri Sayım / Bildirim -->
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl max-w-md mx-auto slide-up" style="animation-delay: 1.2s;">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Haberdar Ol!</h3>
+            <p class="text-gray-600 mb-6">Site yayına girdiğinde ilk sen öğren</p>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input 
+                    type="email" 
+                    placeholder="E-posta adresin" 
+                    class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                >
+                <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition">
+                    Bildir
+                </button>
+            </div>
+        </div>
+        
+        <!-- Alt Bilgi -->
+        <div class="mt-12 text-gray-500 text-sm slide-up" style="animation-delay: 1.4s;">
+            <p class="pulse-slow">💜 Sevgiyle kodlanıyor</p>
+            <p class="mt-2">© 2026 bc724.com</p>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
